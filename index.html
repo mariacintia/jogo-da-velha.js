@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Velha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            background-color: #1988c4;
+            color: #0f2860;
+        }
+        #board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 5px;
+            justify-content: center;
+            margin: 20px auto;
+            color: #1d4297;
+        }
+        .cell {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            border: 2px solid #1d4297;
+            cursor: pointer;
+            background-color: #80ddfe;
+        }
+        .cell.taken {
+            cursor: not-allowed;
+        }
+        .cell.winning {
+            background-color: #48d4f0;
+        }
+        #aviso {
+            margin: 10px;
+            font-size: 1.2em;
+            color: #1d4297;
+        }
+        #score {
+            margin: 20px;
+            font-size: 1.5em;
+            color: #1d4297;
+        }
+        button {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 20px;
+            color: #80c4e7;
+            background-color: #1d4297; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Jogo da Velha</h1>
+    <div id="setup">
+        <label>Nome do Jogador 1 🕹️: <input type="text" id="player1" placeholder="Jogador X"></label><br/>
+        <label>Nome do Jogador 2 🕹️: <input type="text" id="player2" placeholder="Jogador O"></label><br/>
+        <button onclick="iniciarJogo()">Iniciar Jogo</button>
+    </div>
+    <div id="game" style="display: none;">
+        <div id="placar">
+    <p><strong>Placar:</strong></p>
+    <p>Jogador 1: 0 | Jogador 2: 0</p>
+</div>
+
+        <div id="aviso">Vez do jogador: </div>
+        <div id="board"></div>
+        <button onclick="reiniciar()">Reiniciar Partida</button>
+        <button onclick="voltarMenu()">Voltar ao Menu</button>
+    </div>
+
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
